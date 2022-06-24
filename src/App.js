@@ -1,12 +1,16 @@
-import Home from "./pages/Home";
-// import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Category from "./components/Category";
+import Pages from "./pages/Pages";
+import { BrowserRouter } from "react-router-dom";
+import Search from "./components/Search";
 
 function App() {
   return (
     <div>
-      {/* <BrowserRouter> */}
-      <Home />
-      {/* </BrowserRouter> */}
+      <BrowserRouter>
+        <Category />
+        <Search />
+        <Pages />
+      </BrowserRouter>
     </div>
   );
 }
