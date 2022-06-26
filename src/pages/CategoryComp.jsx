@@ -20,7 +20,6 @@ function CategoryComp() {
       options
     );
     const data = await api.json();
-    console.log(data.products);
 
     setItems(data.products);
   };
@@ -34,8 +33,10 @@ function CategoryComp() {
       {items.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.heroImage} alt={item.title} />
-            <h4>{item.displayName}</h4>
+            <Link to={"/item/" + item.productId + "/" + item.currentSku.skuId}>
+              <img src={item.heroImage} alt={item.title} />
+              <h4>{item.displayName}</h4>
+            </Link>
           </Card>
         );
       })}

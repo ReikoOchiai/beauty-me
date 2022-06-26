@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
+import { Link } from "react-router-dom";
 
 function Fetch() {
   const [products, setProducts] = useState([]);
@@ -28,7 +29,6 @@ function Fetch() {
         options
       );
       const data = await api.json();
-      console.log(data.products);
 
       localStorage.setItem("products", JSON.stringify(data));
       setProducts(data.products);
@@ -50,12 +50,21 @@ function Fetch() {
         >
           {products.map((product) => {
             return (
-              <SplideSlide key={product.id}>
-                <Card>
-                  <div>
-                    <p> {product.displayName} </p>
-                    <img src={product.heroImage} alt={product.title} />
-                  </div>
+              <SplideSlide>
+                <Card key={product.id}>
+                  <Link
+                    to={
+                      "/item/" +
+                      product.productId +
+                      "/" +
+                      product.currentSku.skuId
+                    }
+                  >
+                    <div>
+                      <p> {product.displayName} </p>
+                      <img src={product.heroImage} alt={product.title} />
+                    </div>
+                  </Link>
                   <Gradient />
                 </Card>
               </SplideSlide>

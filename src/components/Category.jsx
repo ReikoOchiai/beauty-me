@@ -56,10 +56,6 @@ const SLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   border-radius: 2rem;
-
-  &.active {
-    background: linear-gradient(to right, #f27121, #e94057);
-  }
 `;
 
 export default Category;
